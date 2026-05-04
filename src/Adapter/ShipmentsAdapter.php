@@ -7,6 +7,7 @@ namespace Paysera\DeliverySdk\Adapter;
 use Paysera\DeliveryApi\MerchantClient\Entity\ShipmentCreate;
 use Paysera\DeliverySdk\Collection\OrderItemsCollection;
 use Paysera\DeliverySdk\Entity\MerchantOrderItemInterface;
+use Paysera\DeliverySdk\Entity\PayseraDeliverySettingsInterface;
 
 class ShipmentsAdapter
 {
@@ -16,38 +17,25 @@ class ShipmentsAdapter
      */
     public function convert(
         OrderItemsCollection $items,
-        bool $isSinglePerOrderShipmentEnabled = false
+        ?PayseraDeliverySettingsInterface $deliverySettings = null
     ): iterable {
-        if ($isSinglePerOrderShipmentEnabled) {
-            return $this->createSingleShipment($items);
+        if ($deliverySettings !== null && $deliverySettings->isSinglePerOrderShipmentEnabled()) {
+            return $this->createSingleShipment($deliverySettings);
         }
         return $this->createMultipleShipments($items);
     }
 
     /**
-     * @param OrderItemsCollection<MerchantOrderItemInterface> $items
      * @return iterable<ShipmentCreate>
      */
-    private function createSingleShipment(OrderItemsCollection $items): iterable
+    private function createSingleShipment(PayseraDeliverySettingsInterface $deliverySettings): iterable
     {
-        $width = 0;
-        $height = 0;
-        $length = 0;
-        $weight = 0;
-
-        foreach ($items as $item) {
-            $width += $item->getWidth();
-            $height += $item->getHeight();
-            $length += $item->getLength();
-            $weight += $item->getWeight();
-        }
-
         return [
             (new ShipmentCreate())
-                ->setLength((int) ceil($length))
-                ->setWidth((int) ceil($width))
-                ->setHeight((int) ceil($height))
-                ->setWeight((int) ceil($weight)),
+                ->setLength($deliverySettings->getDefaultParcelLength())
+                ->setWidth($deliverySettings->getDefaultParcelWidth())
+                ->setHeight($deliverySettings->getDefaultParcelHeight())
+                ->setWeight($deliverySettings->getDefaultParcelWeight()),
         ];
     }
 

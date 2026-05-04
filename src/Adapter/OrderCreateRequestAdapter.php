@@ -45,7 +45,7 @@ class OrderCreateRequestAdapter
             ->setShipmentMethodCode(
                 $this->gatewayUtils->getShipmentMethodCode($deliveryGateway->getSettings())
             )
-            ->setShipments([...$this->shipmentsAdapter->convert($orderDto->getItems(), $request->getDeliverySettings()->isSinglePerOrderShipmentEnabled())])
+            ->setShipments([...$this->shipmentsAdapter->convert($orderDto->getItems(), $request->getDeliverySettings())])
             ->setReceiver(
                 $this->shipmentPointAdapter->convert(
                     $orderDto->getShipping(),
