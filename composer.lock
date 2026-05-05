@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d9caed69a9575b77a1a546e3213f3eea",
+    "content-hash": "60e4bf6fabaf31e3af822a03eac5ea2c",
     "packages": [
         {
             "name": "evp/money",
@@ -536,16 +536,16 @@
         },
         {
             "name": "paysera/lib-delivery-api-merchant-client",
-            "version": "1.2.1",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paysera/lib-delivery-api-merchant-client.git",
-                "reference": "263496744b42f1fb10767636fba05efea743a783"
+                "reference": "2943b121f7037ce5743c909f456936de3edd03a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paysera/lib-delivery-api-merchant-client/zipball/263496744b42f1fb10767636fba05efea743a783",
-                "reference": "263496744b42f1fb10767636fba05efea743a783",
+                "url": "https://api.github.com/repos/paysera/lib-delivery-api-merchant-client/zipball/2943b121f7037ce5743c909f456936de3edd03a8",
+                "reference": "2943b121f7037ce5743c909f456936de3edd03a8",
                 "shasum": ""
             },
             "require": {
@@ -564,9 +564,9 @@
             "description": "Paysera Delivery Api Merchant Client",
             "support": {
                 "issues": "https://github.com/paysera/lib-delivery-api-merchant-client/issues",
-                "source": "https://github.com/paysera/lib-delivery-api-merchant-client/tree/1.2.1"
+                "source": "https://github.com/paysera/lib-delivery-api-merchant-client/tree/1.5.1"
             },
-            "time": "2025-04-29T10:04:12+00:00"
+            "time": "2025-12-03T12:45:08+00:00"
         },
         {
             "name": "paysera/lib-rest-client-common",
@@ -5204,12 +5204,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": ">=7.4"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
