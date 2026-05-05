@@ -24,4 +24,12 @@ interface PayseraDeliverySettingsInterface
     public function getUserAgent(): string;
 
     public function isSinglePerOrderShipmentEnabled(): bool;
+
+    public function getDefaultParcelWidth(): int;
+
+    public function getDefaultParcelHeight(): int;
+
+    public function getDefaultParcelLength(): int;
+
+    public function getDefaultParcelWeight(): int;
 }
