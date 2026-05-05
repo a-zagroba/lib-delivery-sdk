@@ -17,9 +17,9 @@ class ShipmentsAdapter
      */
     public function convert(
         OrderItemsCollection $items,
-        ?PayseraDeliverySettingsInterface $deliverySettings = null
+        PayseraDeliverySettingsInterface $deliverySettings
     ): iterable {
-        if ($deliverySettings !== null && $deliverySettings->isSinglePerOrderShipmentEnabled()) {
+        if ($deliverySettings->isSinglePerOrderShipmentEnabled()) {
             return $this->createSingleShipment($deliverySettings);
         }
         return $this->createMultipleShipments($items);
