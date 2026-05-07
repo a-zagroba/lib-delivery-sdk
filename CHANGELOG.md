@@ -15,9 +15,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## 0.3.0 - 2024-06-15
 - Sending as one big package
 
-## 0.3.0 - 2024-06-15
-- Sending as one big package
-
 ## 0.2.1 - 2024-04-29
 - Updated documentation
 
