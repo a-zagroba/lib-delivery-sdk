@@ -20,12 +20,16 @@ class ShipmentsAdapter
         PayseraDeliverySettingsInterface $deliverySettings
     ): iterable {
         if ($deliverySettings->isSinglePerOrderShipmentEnabled()) {
+            if (count($items) === 0) {
+                return [];
+            }
             return $this->createSingleShipment($deliverySettings);
         }
         return $this->createMultipleShipments($items);
     }
 
     /**
+     * @param PayseraDeliverySettingsInterface $deliverySettings
      * @return iterable<ShipmentCreate>
      */
     private function createSingleShipment(PayseraDeliverySettingsInterface $deliverySettings): iterable
